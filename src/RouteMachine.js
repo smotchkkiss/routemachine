@@ -363,6 +363,7 @@ function isPromise (maybePromise) {
 
   return !!maybePromise &&
     (Object.prototype.toString.call(maybePromise) === '[object Object]' ||
+     Object.prototype.toString.call(maybePromise) === '[object Promise]' ||
      isFunction(maybePromise)) &&
     isFunction(maybePromise.then)
 }

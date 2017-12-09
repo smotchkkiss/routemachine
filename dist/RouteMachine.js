@@ -367,7 +367,41 @@ module.exports.isFunction = isFunction;
 
 function isPromise(maybePromise) {
 
-  return !!maybePromise && (Object.prototype.toString.call(maybePromise) === '[object Object]' || isFunction(maybePromise)) && isFunction(maybePromise.then);
+  // console.log('isPromise')
+
+  // console.log('maybePromise', maybePromise)
+
+  // const __notNotP = !!maybePromise
+
+  // console.log('!!maybePromise', __notNotP)
+
+  // const __toString = Object.prototype.toString.call(maybePromise)
+
+  // console.log('Object.prototype.toString.call(maybePromise)', __toString)
+
+  // const __isObject = __toString === '[object Object]'
+
+  // console.log("Object.prototype.toString.call(maybePromise) === '[object Object]'", __isObject)
+
+  // const __isFunction = isFunction(maybePromise)
+
+  // console.log('isFunction(maybePromise)', __isFunction)
+
+  // const __isObjectOrFunction = __isObject || __isFunction
+
+  // console.log("Object.prototype.toString.call(maybePromise) === '[object Object]' ||\nisFunction(maybePromise)", __isObjectOrFunction)
+
+  // const __isThenFunction = isFunction(maybePromise.then)
+
+  // console.log('isFunction(maybePromise.then)', __isThenFunction)
+
+  // const __allAnd = __notNotP && __isObjectOrFunction && __isThenFunction
+
+  // console.log("!!maybePromise &&\n(Object.prototype.toString.call(maybePromise) === '[object Object]' ||\nisFunction(maybePromise)) &&\nisFunction(maybePromise.then)", __allAnd)
+
+  // return __allAnd
+
+  return !!maybePromise && (Object.prototype.toString.call(maybePromise) === '[object Object]' || Object.prototype.toString.call(maybePromise) === '[object Promise]' || isFunction(maybePromise)) && isFunction(maybePromise.then);
 }
 
 module.exports.isPromise = isPromise;
