@@ -1,7 +1,7 @@
 {
   "name": "@sub-lunar/routemachine",
   "version": "0.0.1",
-  "description": "A state machine that runs your frontend routes, one after another",
+  "description": "A state machine that runs your client side routes, one after another",
   "main": "./dist/RouteMachine.js",
   "scripts": {
     "test": "ava",
