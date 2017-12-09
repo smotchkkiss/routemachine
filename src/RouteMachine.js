@@ -5,11 +5,13 @@ const LEFT = 'LEFT'
 const ENTERING = 'ENTERING'
 const ERROR = 'ERROR'
 
+
 // callback names
 const BEFORE_ENTER = 'beforeEnterCallback'
 const ENTER = 'enterCallback'
 const LEAVE = 'leaveCallback'
 const AFTER_LEAVE = 'afterLeaveCallback'
+
 
 // create a new route callback function with optional
 // enter-, leave-, beforeEnter- and afterLeaveCallbacks
@@ -293,6 +295,7 @@ module.exports = class RouteMachine {
   }
 }
 
+
 class Route {
 
   constructor (callbacks) {
@@ -326,6 +329,9 @@ class Route {
   }
 }
 
+module.exports.Route = Route
+
+
 // call a function that may or may not return a promise
 // and return a promise. if the function doesn't return
 // a promise then it must be synchronous or all hell breaks
@@ -342,10 +348,16 @@ function asPromise (fn, ...args) {
   return Promise.resolve()
 }
 
+module.exports.asPromise = asPromise
+
+
 function isFunction (maybeFunction) {
 
   return Object.prototype.toString.call(maybeFunction) === '[object Function]'
 }
+
+module.exports.isFunction = isFunction
+
 
 function isPromise (maybePromise) {
 
@@ -355,10 +367,16 @@ function isPromise (maybePromise) {
     isFunction(maybePromise.then)
 }
 
+module.exports.isPromise = isPromise
+
+
 function composePromiseCallbacks (first, second) {
   return (...args) =>
     first(...args)
       .then(() => second(...args))
 }
+
+module.exports.composePromiseCallbacks = composePromiseCallbacks
+
 
 function noop () {}

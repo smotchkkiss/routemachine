@@ -335,12 +335,12 @@ var Route = function () {
   return Route;
 }();
 
+module.exports.Route = Route;
+
 // call a function that may or may not return a promise
 // and return a promise. if the function doesn't return
 // a promise then it must be synchronous or all hell breaks
 // loose (at the call site, presumably)
-
-
 function asPromise(fn) {
   for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     args[_key - 1] = arguments[_key];
@@ -356,15 +356,21 @@ function asPromise(fn) {
   return Promise.resolve();
 }
 
+module.exports.asPromise = asPromise;
+
 function isFunction(maybeFunction) {
 
   return Object.prototype.toString.call(maybeFunction) === '[object Function]';
 }
 
+module.exports.isFunction = isFunction;
+
 function isPromise(maybePromise) {
 
   return !!maybePromise && (Object.prototype.toString.call(maybePromise) === '[object Object]' || isFunction(maybePromise)) && isFunction(maybePromise.then);
 }
+
+module.exports.isPromise = isPromise;
 
 function composePromiseCallbacks(first, second) {
   return function () {
@@ -377,5 +383,7 @@ function composePromiseCallbacks(first, second) {
     });
   };
 }
+
+module.exports.composePromiseCallbacks = composePromiseCallbacks;
 
 function noop() {}
