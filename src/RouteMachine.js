@@ -35,7 +35,7 @@ const AFTER_LEAVE = 'afterLeaveCallback'
 // page('/', routeFactory.makeRoute(ctx => {
 //   ...
 // }))
-export default class RouteMachine {
+module.exports = class RouteMachine {
 
   constructor () {
 
