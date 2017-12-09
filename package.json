@@ -1,0 +1,21 @@
+{
+  "name": "@sub-lunar/routemachine",
+  "version": "0.0.1",
+  "description": "A state machine that runs your frontend routes, one after another",
+  "main": "./dist/RouteMachine.js",
+  "scripts": {
+    "test": "ava",
+    "build": "babel src --presets babel-preset-es2015 --out-dir dist",
+    "prepublish": "npm run build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sub-lunar/routemachine.git"
+  },
+  "author": "Emanuel Tannert <post@etannert.de> (https://github.com/sub-lunar/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sub-lunar/routemachine/issues"
+  },
+  "homepage": "https://github.com/sub-lunar/routemachine#readme"
+}
